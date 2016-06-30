@@ -78,6 +78,8 @@ calc = Vasp(xc='PBE',
          #   nupdown=0
             )
 
+
+
 view(bulk)
 atoms = bulk
 
