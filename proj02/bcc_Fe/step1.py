@@ -12,7 +12,7 @@ save(result_file, atoms.get_positions())
 
 os.chdir(work_dir)
 
-OPTIONS = np.linspace(2.80, 2.95, 11)
+OPTIONS = np.linspace(2.80, 2.95, 11) # *2
 print OPTIONS
 volumes = []
 energies = []
@@ -46,7 +46,6 @@ for opt in OPTIONS:
                 nelm=100
                 )
 
-
     atoms.set_calculator(calc)
     p = atoms.get_potential_energy()
 
@@ -56,7 +55,7 @@ for opt in OPTIONS:
 
     calc.set(istart = 1,
              icharg = 0,
-             kpts=(8,8,8)
+             kpts=(12,12,12)
              )
 
     p = atoms.get_potential_energy()
