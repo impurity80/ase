@@ -10,7 +10,6 @@ from ase.utils.eos import EquationOfState
 from ase.lattice.cubic import BodyCenteredCubic
 from ase import Atom
 
-
 a = 2.87
 
 cell = [[1,0,0],[0,1,0],[0,0,1]]
@@ -21,4 +20,11 @@ carbon = Atom('C', position=(0,0.5*a,0.5*a), charge=0.4)
 
 atoms = atoms*(2,2,2) + carbon
 
-view(atoms)
+for i in range(11):
+    os.system('mkdir {:02d}'.format(i))
+    os.chdir('{:02d}'.format(i))
+    atoms[16].position = [0,0.5*a,(0.5+(1./10.*i))*a]
+ #   view(atoms)
+    write('POSCAR', atoms)
+    os.chdir('..')
+
