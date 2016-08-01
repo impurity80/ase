@@ -1,18 +1,23 @@
 from step0 import *
 
 id = 1
-os.system('mkdir work-{0}'.format(id))
-os.chdir('work-{0}'.format(id))
-CWD = os.getcwd()
-os.system('rm -f {0}/result.txt'.format(CWD))
-save('{0}/result.txt'.format(CWD), atoms.get_positions())
+
+curr_dir = os.getcwd()
+work_dir = 'work-{0}'.format(id)
+result_file = '{0}/result/result_{1}.txt'.format(curr_dir,id)
+
+os.system('mkdir {0}'.format(work_dir))
+os.system('rm -f {0}'.format(result_file))
+save(result_file, atoms.get_positions())
+
+os.chdir(work_dir)
 
 OPTIONS = range(3,15,1)
 volumes, energies = [], []
 
 for opt in OPTIONS:
 
-    save('{0}/result.txt'.format(CWD), 'Option : {0}'.format(opt))
+    save(result_file, 'Option : {0}'.format(opt))
 
     a = 3.57
     atoms.set_cell([a,a,a], scale_atoms=True)
@@ -37,7 +42,7 @@ for opt in OPTIONS:
 
     print p, p/len(atoms)
 
-    save('{0}/result.txt'.format(CWD), '{0} {1}'.format(p, p/len(atoms)))
+    save(result_file, '{0} {1}'.format(p, p/len(atoms)))
 
     # k-point increase
     calc.set(istart = 1,
@@ -48,9 +53,9 @@ for opt in OPTIONS:
 
     energies.append(p/len(atoms))
 
-    save('{0}/result.txt'.format(CWD), '{0} {1}'.format(p, p/len(atoms)))
-    save('{0}/result.txt'.format(CWD), '{0}'.format(atoms.get_forces()))
-    save('{0}/result.txt'.format(CWD), '----------------------')
+    save(result_file, '{0} {1}'.format(p, p/len(atoms)))
+    save(result_file, '{0}'.format(atoms.get_forces()))
+    save(result_file, '----------------------')
 
     print p, p/len(atoms)
     print atoms.get_forces()
@@ -59,15 +64,15 @@ for opt in OPTIONS:
 
 os.chdir('..')
 
-save('{0}/result.txt'.format(CWD), '{0}'.format(OPTIONS))
-save('{0}/result.txt'.format(CWD), '{0}'.format(energies))
-save('{0}/result.txt'.format(CWD), '----------------------')
+save(result_file, '{0}'.format(OPTIONS))
+save(result_file, '{0}'.format(energies))
+save(result_file, '----------------------')
 
 plt.plot(OPTIONS, energies)
 plt.xlabel('OPTIONS')
 plt.ylabel('Energy (eV)')
 
-plt.savefig('{0}/step{1}.png'.format(CWD, id))
-plt.show('{0}/step{1}.png'.format(CWD, id))
+plt.savefig('{0}/result/step{1}.png'.format(curr_dir, id))
+plt.show('{0}/result/step{1}.png'.format(curr_dir, id))
 
 

@@ -14,9 +14,13 @@ atoms = crystal(spacegroup=227,
                 basis=[0,0,0],
                 cellpar=[3.57,3.57,3.57,90.0,90.0,90.0])
 
+# atoms.set_initial_magnetic_moments([1,1,1,1,1,1,1,1])
+
 view(atoms)
 
 def save( filename, arg ):
     f = open(filename, 'a+t')
     f.write('{0} \n'.format(arg))
     f.close()
+
+os.system('mkdir result')
