@@ -22,7 +22,7 @@ atoms = atoms*(2,2,2) + carbon
 init = atoms.copy()
 
 final = atoms.copy()
-final[16].position = [0, 0.5*a, (0.5+0.5)*a]
+final[16].position = [0, 0.5*a, (0.5+1.0)*a]
 
 for i in range(11):
     os.system('mkdir {:02d}'.format(i))
