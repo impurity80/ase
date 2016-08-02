@@ -40,10 +40,10 @@ for opt in OPTIONS:
           #      prec='Accurate',
           #      ediff=0.00025,
                 algo='Fast',
-                potim=0.05,
-                lorbit=11,
-                lreal='False',
-                lwave=False,
+          #      potim=0.05,
+          #      lorbit=11,
+          #      lreal='False',
+          #      lwave=False,
                 nelm=100
                 )
 
