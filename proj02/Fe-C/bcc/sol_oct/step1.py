@@ -72,7 +72,7 @@ for opt in OPTIONS:
 
     energies.append(p)
     volumes.append(v)
-        magmoms.append(m)
+    magmoms.append(m)
 
     save(result_file, '3rd calculation \n total energy : {0} eV, {1} eV/atom'.format(p, p/len(atoms)))
     save(result_file, 'magnetic moment : {0} mB, {1} mB/atom'.format(m, m/len(atoms)))
@@ -100,7 +100,7 @@ save(result_file, 'v, e, m per atoms')
 for o, v, e, m in zip(OPTIONS, volumes, energies, magmoms):
     save(result_file, '{0}, {1}, {2}, {3} '.format(o, v/len(atoms), e/len(atoms), m/len(atoms)))
    
-   save(result_file, '-----------------------------------')
+save(result_file, '-----------------------------------')
 
 plt.plot(OPTIONS, energies)
 plt.xlabel('OPTIONS')
