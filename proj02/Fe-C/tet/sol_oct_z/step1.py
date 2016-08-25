@@ -8,23 +8,20 @@ result_file = '{0}/result/result_{1}.txt'.format(curr_dir,id)
 
 os.system('mkdir {0}'.format(work_dir))
 os.system('rm -f {0}'.format(result_file))
-# save(result_file, atoms.get_positions())
+save(result_file, atoms.get_positions())
 
 os.chdir(work_dir)
 
-OPTIONS = np.linspace(2.80, 2.95, 11)*2
+OPTIONS = np.linspace(2.70, 2.85, 11)*2
 print OPTIONS
 volumes = []
 energies = []
 magmoms = []
 
 for opt in OPTIONS:
-
-    atoms = bcc.copy()
-
     save(result_file, '-------------------------\n Option : {0}'.format(opt))
 
-    atoms.set_cell([opt*1.07,opt,opt], scale_atoms=True)
+    atoms.set_cell([opt,opt,opt*1.07], scale_atoms=True)
 
     opt_dir = 'opt-{0}'.format(opt)
     os.system('mkdir {0}'.format(opt_dir))

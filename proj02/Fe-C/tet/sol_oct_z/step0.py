@@ -14,18 +14,15 @@ from ase import Atom
 a = 2.87
 
 cell = [[1,0,0],[0,1,0],[0,0,1]]
-bcc = BodyCenteredCubic('Fe', directions=cell)
-bcc.set_initial_magnetic_moments([5,5])
+atoms = BodyCenteredCubic('Fe', directions=cell)
+atoms.set_initial_magnetic_moments([5,5])
 
-carbon = Atom('C', position=(0,0.5*a,0.75*a), charge=0.4)
+carbon = Atom('C', position=(0,0.5*a,0.5*a), charge=0.4)
 
-bcc = bcc*(2,2,2) + carbon
+atoms = atoms*(2,2,2) + carbon
 #atoms = atoms*(2,2,2)
-constraint = FixAtoms(indices=[5,7,13,15,16])
 
-bcc.set_constraint(constraint)
-
-view(bcc)
+view(atoms)
 
 def save( filename, arg ):
     f = open(filename, 'a+t')
@@ -34,5 +31,5 @@ def save( filename, arg ):
 
 os.system('mkdir result')
 
-print bcc.get_cell()
+print atoms.get_cell()
 
