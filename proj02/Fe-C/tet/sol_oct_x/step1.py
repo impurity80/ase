@@ -2,6 +2,8 @@ from step0 import *
 
 id = 1
 
+atoms = bcc
+
 curr_dir = os.getcwd()
 work_dir = 'work-{0}'.format(id)
 result_file = '{0}/result/result_{1}.txt'.format(curr_dir,id)
@@ -12,7 +14,7 @@ save(result_file, atoms.get_positions())
 
 os.chdir(work_dir)
 
-OPTIONS = np.linspace(2.80, 2.95, 11)*2
+OPTIONS = np.linspace(2.75, 2.90, 11)*2
 print OPTIONS
 volumes = []
 energies = []

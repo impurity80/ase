@@ -2,17 +2,19 @@ from step0 import *
 
 id = 1
 
+atoms = bcc
+
 curr_dir = os.getcwd()
 work_dir = 'work-{0}'.format(id)
 result_file = '{0}/result/result_{1}.txt'.format(curr_dir,id)
 
 os.system('mkdir {0}'.format(work_dir))
 os.system('rm -f {0}'.format(result_file))
-# save(result_file, atoms.get_positions())
+save(result_file, atoms.get_positions())
 
 os.chdir(work_dir)
 
-OPTIONS = np.linspace(2.70, 2.85, 11)*2
+OPTIONS = np.linspace(2.75, 2.90, 11)*2
 print OPTIONS
 volumes = []
 energies = []
@@ -20,7 +22,7 @@ magmoms = []
 
 for opt in OPTIONS:
 
-    atoms = bcc.copy()
+#    atoms = bcc.copy()
 
     save(result_file, '-------------------------\n Option : {0}'.format(opt))
 
