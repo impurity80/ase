@@ -12,7 +12,7 @@ os.system('rm -f {0}'.format(result_file))
 
 os.chdir(work_dir)
 
-OPTIONS = np.linspace(2.80, 2.95, 11)*2
+OPTIONS = np.linspace(2.70, 2.85, 11)*2
 print OPTIONS
 volumes = []
 energies = []

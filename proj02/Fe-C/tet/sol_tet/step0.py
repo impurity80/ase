@@ -21,7 +21,7 @@ carbon = Atom('C', position=(0,0.5*a,0.75*a), charge=0.4)
 
 bcc = bcc*(2,2,2) + carbon
 #atoms = atoms*(2,2,2)
-constraint = FixAtoms(indices=[5,7,13,15,16])
+constraint = FixAtoms(indices=[5,7,8,10,12,13,14,15,16])
 
 bcc.set_constraint(constraint)
 
