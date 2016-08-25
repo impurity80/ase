@@ -10,7 +10,6 @@ from ase.utils.eos import EquationOfState
 from ase.lattice.cubic import BodyCenteredCubic
 from ase import Atom
 
-
 a = 2.87
 
 cell = [[1,0,0],[0,1,0],[0,0,1]]
