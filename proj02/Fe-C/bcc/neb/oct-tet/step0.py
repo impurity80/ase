@@ -43,10 +43,3 @@ for i in range(0,18):
 view(init)
 view(final)
 
-def save( filename, arg ):
-    f = open(filename, 'a+t')
-    f.write('{0} \n'.format(arg))
-    f.close()
-
-os.system('mkdir result')
-
