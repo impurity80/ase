@@ -15,7 +15,7 @@ images = []
 
 for i in range(0,18):
     os.chdir('{:02d}'.format(i))
-    atoms = read('POSCAR')
+    atoms = read('CONTCAR')
     images.append(atoms.copy())
     os.chdir('..')
 
