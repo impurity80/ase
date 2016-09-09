@@ -6,8 +6,8 @@ from ase.neb import NEB
 from numpy import *
 from ase.calculators.vasp import *
 
-init = read('work-1/init/POSCAR')
-final = read('work-1/init/POSCAR')
+init = read('work-1/init/CONTCAR')
+final = read('work-1/final/CONTCAR')
 
 a = final.get_cell()[0][0]
 final[-1].position = [0, 3./8.*a, 1./4.*a]
@@ -19,8 +19,7 @@ constraint = FixAtoms(mask=[])
 init.set_constraint(constraint)
 
 images = [init]
-n = 8
-for i in range(n):
+for i in range(8):
     image = init.copy()
     images.append(image)
 images.append(final)
