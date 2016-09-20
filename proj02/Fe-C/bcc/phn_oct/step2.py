@@ -1,6 +1,8 @@
 from step0 import *
 
-id = 'init'
+atoms = read('work-init/CONTCAR')
+
+id = 2
 
 curr_dir = os.getcwd()
 work_dir = 'work-{0}'.format(id)
@@ -16,20 +18,20 @@ calc = Vasp(istart=0,
             icharg=2,
             xc='PBE',
             ibrion=-1,
-            encut=500,
+            encut=540,
+            ispin = 2,
             ediff = 1.0e-8,
-            ismear = 0,
-            sigma = 0.01,
+            ismear = 1,
+            sigma = 0.1,
             ialgo = 38,
             lreal = 'False',
             lwave=False,
             lcharg=False,
             nelm=100,
-            kpts=[5,5,5]
+            kpts=[8,8,8]
             )
 
 atoms.set_calculator(calc)
 p = atoms.get_potential_energy()
 
 save(result_file, '-----------------------------------')
-
