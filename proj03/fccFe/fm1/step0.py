@@ -20,7 +20,7 @@ def save( filename, arg ):
 a = 3.6
 
 bulk = FaceCenteredCubic('Fe', directions=[[1,0,0],[0,1,0],[0,0,1]], latticeconstant=a)
-# bulk.set_initial_magnetic_moments([5,5,5,5])
+bulk.set_initial_magnetic_moments([5,5,5,5])
 
 # view(bulk)
 atoms = bulk
