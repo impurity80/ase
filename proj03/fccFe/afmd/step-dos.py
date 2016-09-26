@@ -12,9 +12,9 @@ save(result_file, atoms.get_positions())
 
 os.chdir(work_dir)
 
-a = 3.4876
+a = 3.5349
 
-atoms.set_cell([a, a, a], scale_atoms=True)
+atoms.set_cell([a, a*2, a], scale_atoms=True)
 
 calc = Vasp(istart =0,
             icharg =2,
@@ -44,7 +44,7 @@ save(result_file, '1st calculation \n total energy : {0} eV, {1} eV/atom'.format
 
 calc.set(istart = 1,
          icharg = 0,
-         kpts=(12,12,12)
+         kpts=(12,6,12)
          )
 
 p = atoms.get_potential_energy()
