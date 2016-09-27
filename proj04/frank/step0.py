@@ -47,7 +47,7 @@ s1 = s1+s2
 # print s2.get_cell()
 
 
-mask = [ [0,2,9,11,20,22,32,34,41,43,48,50,57,59,77,79,80,82,68,70,29,31].count(atom.index)==1 for atom in s1]
+mask = [ atom.position[2] < 0.5 or [0,2,9,11,20,22,32,34,41,43,48,50,57,59,77,79,80,82,68,70,29,31].count(atom.index)==1 for atom in s1]
 # mask = [atom.position[2] < 4.2 or ([41,43,32,34,29,31,20,22,9,11].count(atom.index)==1 )for atom in s1]
 constraint = FixAtoms(mask=mask)
 s1.set_constraint(constraint)
