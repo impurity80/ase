@@ -37,7 +37,7 @@ s2.translate(s2.get_cell()[2])
 
 cell = s1.get_cell()
 # cell[1] = cell[1]*8./7.
-cell[1] = cell[1]*24./23.
+# cell[1] = cell[1]*24./23.
 s2.set_cell(cell, scale_atoms=True)
 
 s1 = s1+s2

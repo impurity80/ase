@@ -12,9 +12,9 @@ save(result_file, atoms.get_positions())
 
 os.chdir(work_dir)
 
-a = 3.5349
+#a = 3.5349
 
-atoms.set_cell([a, a*2, a], scale_atoms=True)
+#atoms.set_cell([a, a*2, a], scale_atoms=True)
 
 calc = Vasp(istart = 0,
             icharg = 2,
@@ -54,7 +54,7 @@ save(result_file, '2nd calculation \n total energy : {0} eV, {1} eV/atom'.format
 save(result_file, 'magnetic moment : {0} mB, {1} mB/atom'.format(m, m / len(atoms)))
 save(result_file, 'forces \n {0}'.format(atoms.get_forces()))
 
-#calc.set(isif=2, ibrion=2, nsw=99)
+# calc.set(isif=2, ibrion=2, nsw=99)
 #p = atoms.get_potential_energy()
 #m = atoms.get_magnetic_moment()
 #v = atoms.get_volume()

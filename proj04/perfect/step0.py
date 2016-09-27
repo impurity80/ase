@@ -17,7 +17,7 @@ def save( filename, arg ):
     f.write('{0} \n'.format(arg))
     f.close()
 
-a = 3.6
+a = 3.5349
 
 bulk = FaceCenteredCubic('Fe', directions=[[1,0,0],[0,1,0],[0,0,1]], latticeconstant=a)
 
@@ -27,26 +27,46 @@ bulk = FaceCenteredCubic('Fe', directions=[[1,0,0],[0,1,0],[0,0,1]], latticecons
 bulk = bulk*(1,2,1)
 bulk.set_initial_magnetic_moments([5,5,5,5,-5,-5,-5,-5])
 
-s1 = surface(bulk, (1,2,1), 6)
+s1 = surface(bulk, (1,2,1), 3)
 s1 = s1*(1,2,1)
 
-mask = [atom.position[2] < 4.2 or ([41,43,32,34,29,31,20,22,9,11].count(atom.index)==1 )for atom in s1]
+# view(s1)
+
+s2 = s1.copy()
+s2.translate(s2.get_cell()[2])
+
+cell = s1.get_cell()
+cell[1] = cell[1]*8./7.
+# cell[1] = cell[1]*24./23.
+s2.set_cell(cell, scale_atoms=True)
+
+s1 = s1+s2
+
+#s2.set_cell([0,1,0], scale_atoms=True)
+
+# print s2.get_cell()
+
+
+mask = [atom.position[2] < 0.5 or atom.position[2] > 10 or [9,11,20,22,32,34,41,43,48,50,57,59,77,79,80,82].count(atom.index)==1 for atom in s1]
+# mask = [atom.position[2] < 4.2 or ([41,43,32,34,29,31,20,22,9,11].count(atom.index)==1 )for atom in s1]
 constraint = FixAtoms(mask=mask)
 s1.set_constraint(constraint)
 s1.center(vacuum=10, axis=2)
+s1.center(vacuum=10, axis=1)
 
-del s1[95]
-del s1[93]
-del s1[86]
-del s1[84]
-del s1[75]
-del s1[73]
-del s1[66]
-del s1[64]
+# del s1[95]
+# del s1[93]
+# del s1[86]
+# del s1[84]
+# del s1[75]
+# del s1[73]
+# del s1[66]
+# del s1[64]
 
-atoms = s1
 
 view(s1)
+
+atoms = s1
 
 os.system('mkdir result')
 
