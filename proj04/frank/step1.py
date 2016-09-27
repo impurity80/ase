@@ -30,6 +30,8 @@ calc = Vasp(istart = 0,
             lorbit=11,
             lreal='False',
             lwave=False,
+           # isim = 2,
+            isym = 0,
             nelm=100,
             nupdown=0
             )
