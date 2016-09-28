@@ -80,8 +80,8 @@ atoms = s1
 
 os.system('mkdir result')
 
-pts = get_special_points('cubic')
-print pts
+# pts = get_special_points('cubic')
+# print pts
 
 def dos_info(filename):
     f = open(filename, 'r')

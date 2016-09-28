@@ -45,7 +45,7 @@ save(result_file, '1st calculation \n total energy : {0} eV, {1} eV/atom'.format
 
 calc.set(istart=1,
          icharg=0,
-         kpts=(2, 2, 2)
+         kpts=(4, 1, 1)
          )
 
 p = atoms.get_potential_energy()
