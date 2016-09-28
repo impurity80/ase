@@ -12,9 +12,9 @@ save(result_file, atoms.get_positions())
 
 os.chdir(work_dir)
 
-a = 3.5349
+# a = 3.5349
 
-atoms.set_cell([a, a*2, a], scale_atoms=True)
+# atoms.set_cell([a, a*2, a], scale_atoms=True)
 
 calc = Vasp(istart = 0,
             icharg = 2,
@@ -31,6 +31,7 @@ calc = Vasp(istart = 0,
             lreal='False',
             lwave=False,
             nelm=100,
+            isym = 0,
             nupdown=0
             )
 

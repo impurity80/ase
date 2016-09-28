@@ -23,6 +23,7 @@ bulk = FaceCenteredCubic('Fe', directions=[[1,0,0],[0,1,0],[0,0,1]], latticecons
 
 #bulk = Atoms('Fe4', scaled_positions=[ (0.5,0.5,0), (0.5, 0, 0.5), (0, 0.5, 0.5), (0,0,0)],
 #            magmoms=[5,5,-5,-5], cell=[a,a,a], pbc=(1,1,1))
+a = bulk.copy()
 
 bulk = bulk*(1,2,1)
 bulk.set_initial_magnetic_moments([5,5,5,5,-5,-5,-5,-5])
@@ -41,7 +42,8 @@ view(s1)
 
 os.system('mkdir result')
 
-pts = get_special_points('cubic')
+# pts = ibz_points['cubic']
+pts = get_special_points('cubic', a.cell)
 print pts
 
 def dos_info(filename):
