@@ -27,7 +27,7 @@ atoms = bulk
 
 os.system('mkdir result')
 
-pts = get_special_points('cubic')
+pts = ibz_points['cubic']
 print pts
 
 def dos_info(filename):
@@ -38,7 +38,7 @@ def dos_info(filename):
     return emax, emin, ngrid, efermi
 
 def band_info(cell):
-    pts = get_special_points('cubic')
+    pts = ibz_points['cubic']
     G = pts['Gamma']
     X = pts['X']
     R = pts['R']
