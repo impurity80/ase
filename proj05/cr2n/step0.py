@@ -20,6 +20,8 @@ def save( filename, arg ):
 
 atoms = read('sample/POSCAR')
 
+cell = atoms.get_cell()
+
 print atoms.get_cell()
 
 # a = atoms.get_cell()[1][1]

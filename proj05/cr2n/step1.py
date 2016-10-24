@@ -22,8 +22,6 @@ magmoms = []
 for opt in OPTIONS:
     save(result_file, '-------------------------\n Option : {0}'.format(opt))
 
-    cell = atoms.get_cell()
-
     atoms.set_cell([opt*cell[0], opt*cell[1], opt*cell[2]], scale_atoms=True)
 
     print atoms.get_cell()
